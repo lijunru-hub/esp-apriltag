@@ -1,0 +1,6 @@
+[submodule "components/esp32-camera"]
+	path = components/esp32-camera
+	url = https://github.com/espressif/esp32-camera.git
+[submodule "components/apriltag"]
+	path = components/apriltag
+	url = https://github.com/AprilRobotics/apriltag.git
