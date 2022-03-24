@@ -1,5 +1,0 @@
-source "/home/lijunru/esp-github/esp-idf/components/app_update/Kconfig.projbuild"
-source "/home/lijunru/esp-github/esp-idf/components/bootloader/Kconfig.projbuild"
-source "/home/lijunru/esp-github/esp-idf/components/esp_rom/Kconfig.projbuild"
-source "/home/lijunru/esp-github/esp-idf/components/esptool_py/Kconfig.projbuild"
-source "/home/lijunru/esp-github/esp-idf/components/partition_table/Kconfig.projbuild"
