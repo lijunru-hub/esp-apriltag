@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "app_main.h": "c"
+        "app_main.h": "c",
+        "app_camera.h": "c",
+        "esp_camera.h": "c",
+        "app_lcd.h": "c",
+        "apriltag.h": "c",
+        "stdio.h": "c",
+        "app_apriltag.h": "c",
+        "tag36h11.h": "c"
     }
 }
