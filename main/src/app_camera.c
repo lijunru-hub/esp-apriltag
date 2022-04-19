@@ -57,6 +57,7 @@ void register_camera(const pixformat_t pixel_fromat,
 
     sensor_t *s = esp_camera_sensor_get();
     s->set_vflip(s, 1); // flip it back
+    s->set_hmirror(s,1);
     // initial sensors are flipped vertically and colors are a bit saturated
     if (s->id.PID == OV3660_PID)
     {
@@ -69,6 +70,6 @@ void register_camera(const pixformat_t pixel_fromat,
     s->set_awb_gain(s, 2);
 
     xQueueFrameO = frame_o;
-    xTaskCreatePinnedToCore(task_process_handler, TAG, 2 * 1024, NULL, 5, NULL, 0);
+    xTaskCreatePinnedToCore(task_process_handler, TAG, 2 * 1024, NULL, 5, NULL, 1);
 }
 

@@ -1,0 +1,33 @@
+set(COMPONENT_SRCS
+    apriltag.c
+    tag16h5.c
+    tag25h9.c
+    apriltag_pose.c
+    apriltag_quad_thresh.c
+    common/g2d.c
+    common/pam.c
+    common/unionfind.c
+    common/getopt.c
+    common/pjpeg-idct.c
+    common/workerpool.c
+    common/homography.c
+    common/pjpeg.c
+    common/zarray.c
+    common/image_u8.c
+    common/pnm.c
+    common/zhash.c
+    common/image_u8x3.c
+    common/string_util.c
+    common/zmaxheap.c
+    common/image_u8x4.c
+    common/svd22.c
+    common/matd.c
+    common/time_util.c
+)
+
+set(COMPONENT_ADD_INCLUDEDIRS
+    .
+    common
+)
+
+register_component()

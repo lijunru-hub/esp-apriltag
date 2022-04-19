@@ -1,35 +1,13 @@
 #include "app_apriltag.h"
 
-
 static const char *TAG = "app_apriltag";
 static tagformat_t tag_format;
 
 static QueueHandle_t xQueueFrameI = NULL;
 static QueueHandle_t xQueueFrameO = NULL;
 
-obj_info_t tag_info={.obj_number=0};
-
 apriltag_detector_t *td=NULL;
 apriltag_family_t *tf=NULL;
-
-void Find_AprilTag_old(uint8_t *addr)
-{
-    list_t out;
-    imlib_find_apriltags(&out, addr,tag_format);
-
-    tag_info.obj_number = 0;
-    for (uint8_t i = 0; i < out.no&& i < 10; i++)
-    {
-        tag_info.obj[i].x1 = out.obj[i].x1;
-        tag_info.obj[i].y1 = out.obj[i].y1;
-        tag_info.obj[i].x2 = out.obj[i].x2;
-        tag_info.obj[i].y2 = out.obj[i].y2;
-        tag_info.obj[i].class_id = out.obj[i].payload_len;
-        tag_info.obj[i].rotation = (out.obj[i].rotation * 180) / M_PI;
-        tag_info.obj_number++;
-    }
-    ESP_LOGI(TAG,"apriltag:%d",tag_info.obj_number);
-}
 
 static void ApriTag_init(tagformat_t families) {
     if (families==tag16h5) {
@@ -38,9 +16,9 @@ static void ApriTag_init(tagformat_t families) {
     else if (families==tag25h9) {
         tf = tag25h9_create();
     }
-    else {
-        tf = tag36h11_create();
-    }
+    // else {
+    //     tf = tag36h11_create();
+    // }
     td = apriltag_detector_create();
     apriltag_detector_add_family(td, tf);
     td->quad_sigma = 0.0;
@@ -70,9 +48,8 @@ void Find_AprilTag(camera_fb_t *fb)
     for (int i = 0; i < zarray_size(detections); i++) {
         apriltag_detection_t *det;
         zarray_get(detections, i, &det);
-        printf("%d, ",det->id);
+        ESP_LOGI(TAG,"%d, ",det->id);
     }
-    printf("\n");
     apriltag_detections_destroy(detections);
     // double t =  timeprofile_total_utime(td->tp) / 1.0E3;
     // printf("%12.3f \n", t);
