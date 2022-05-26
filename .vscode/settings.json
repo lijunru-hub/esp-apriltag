@@ -7,6 +7,7 @@
         "apriltag.h": "c",
         "stdio.h": "c",
         "app_apriltag.h": "c",
-        "tag36h11.h": "c"
+        "tag36h11.h": "c",
+        "pthread.h": "c"
     }
 }

@@ -12,8 +12,6 @@
 
 static const char *TAG = "esp-apriltag";
 
-scr_driver_t driver;
-
 QueueHandle_t xQueueAIFrame = NULL;
 QueueHandle_t xQueueLCDFrame = NULL;
 
